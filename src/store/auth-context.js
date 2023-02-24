@@ -20,6 +20,13 @@ export const AuthContextProvider = (props) => {
     setToken(null);
   };
 
+  if (token) {
+    setTimeout(() => {
+      console.log("calling logout handler");
+      logoutHandler();
+    }, 1000 * 60 * 5);
+  }
+
   const contextValue = {
     token: token,
     isLoggedIn: userIsLoggedIn,
